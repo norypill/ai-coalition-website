@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Scheme Options — AI High School Coalition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #F5F5F5; color: #333; }
+
+  .header {
+    text-align: center;
+    padding: 40px 20px 20px;
+  }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 8px; }
+  .header p { color: #666; font-size: 0.95rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 20px 60px;
+  }
+  @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  .option {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  }
+  .option__label {
+    padding: 16px 24px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .option__label h2 { font-size: 1.1rem; font-weight: 600; }
+  .option__label span { font-size: 0.8rem; color: #999; font-family: 'Space Mono', monospace; }
+
+  /* --- MOCK SECTION INSIDE EACH OPTION --- */
+  .mock {
+    padding: 40px 32px;
+  }
+  .mock .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .mock h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .mock p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 540px;
+  }
+  .mock .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+  .mock .btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  .mock .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 600px) { .mock .cards { grid-template-columns: 1fr; } }
+  .mock .card {
+    padding: 20px 16px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+  .mock .card h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .mock .card p { font-size: 0.78rem; margin-bottom: 0; line-height: 1.5; }
+
+  /* SWATCHES */
+  .swatches {
+    display: flex;
+    gap: 0;
+    height: 36px;
+  }
+  .swatches div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===================== */
+  /* CURRENT (DARK) */
+  /* ===================== */
+  .current .mock { background: #1C1714; color: #F0EAE0; }
+  .current .badge { color: #A89F94; border: 1px solid #3A332C; }
+  .current h3 { color: #F0EAE0; }
+  .current .mock p { color: #A89F94; }
+  .current .btn-filled { background: #F0EAE0; color: #1C1714; }
+  .current .btn-outline { border-color: #6B6158; color: #F0EAE0; background: transparent; }
+  .current .card { background: #231E19; border: 1px solid #3A332C; }
+  .current .card h4 { color: #E8D5B5; }
+  .current .card p { color: #A89F94; }
+
+  /* ===================== */
+  /* OPTION A: Clean White + Electric Blue */
+  /* ===================== */
+  .opt-a .mock { background: #FFFFFF; color: #1A1A2E; }
+  .opt-a .badge { color: #4361EE; border: 1px solid #D6DEFF; background: #EEF1FF; }
+  .opt-a h3 { color: #1A1A2E; }
+  .opt-a .mock p { color: #555770; }
+  .opt-a .btn-filled { background: #4361EE; color: #fff; }
+  .opt-a .btn-outline { border-color: #C5CDE8; color: #4361EE; background: transparent; }
+  .opt-a .card { background: #F5F7FF; border: 1px solid #E0E5F5; }
+  .opt-a .card h4 { color: #4361EE; }
+  .opt-a .card p { color: #555770; }
+
+  /* ===================== */
+  /* OPTION B: Warm Cream + Coral/Orange */
+  /* ===================== */
+  .opt-b .mock { background: #FFF9F2; color: #2D2419; }
+  .opt-b .badge { color: #E8653A; border: 1px solid #FDDCCE; background: #FFF0E8; }
+  .opt-b h3 { color: #2D2419; }
+  .opt-b .mock p { color: #6B5D52; }
+  .opt-b .btn-filled { background: #E8653A; color: #fff; }
+  .opt-b .btn-outline { border-color: #D4C5B5; color: #E8653A; background: transparent; }
+  .opt-b .card { background: #FFF4EB; border: 1px solid #F0DFD0; }
+  .opt-b .card h4 { color: #E8653A; }
+  .opt-b .card p { color: #6B5D52; }
+
+  /* ===================== */
+  /* OPTION C: Light + Teal/Green */
+  /* ===================== */
+  .opt-c .mock { background: #F4F9F7; color: #1A2E2A; }
+  .opt-c .badge { color: #0D9373; border: 1px solid #C3E8DD; background: #E6F5F0; }
+  .opt-c h3 { color: #1A2E2A; }
+  .opt-c .mock p { color: #4A6B62; }
+  .opt-c .btn-filled { background: #0D9373; color: #fff; }
+  .opt-c .btn-outline { border-color: #B8D5CC; color: #0D9373; background: transparent; }
+  .opt-c .card { background: #EAF5F1; border: 1px solid #CFEAD9; }
+  .opt-c .card h4 { color: #0D9373; }
+  .opt-c .card p { color: #4A6B62; }
+
+  /* ===================== */
+  /* OPTION D: Cream + Neutral/Charcoal */
+  /* ===================== */
+  .opt-d .mock { background: #FAF7F2; color: #2C2825; }
+  .opt-d .badge { color: #7A6E62; border: 1px solid #DDD6CC; background: #F0EBE3; }
+  .opt-d h3 { color: #2C2825; }
+  .opt-d .mock p { color: #6B6359; }
+  .opt-d .btn-filled { background: #2C2825; color: #FAF7F2; }
+  .opt-d .btn-outline { border-color: #C5BAB0; color: #2C2825; background: transparent; }
+  .opt-d .card { background: #F3EEE7; border: 1px solid #E0D8CE; }
+  .opt-d .card h4 { color: #8C7E70; }
+  .opt-d .card p { color: #6B6359; }
+
+  /* ===================== */
+  /* OPTION E: Cream + Warm Sage */
+  /* ===================== */
+  .opt-e .mock { background: #F8F5EF; color: #2E3330; }
+  .opt-e .badge { color: #6B8068; border: 1px solid #D0DBC9; background: #EAF0E7; }
+  .opt-e h3 { color: #2E3330; }
+  .opt-e .mock p { color: #5C6660; }
+  .opt-e .btn-filled { background: #6B8068; color: #FFF; }
+  .opt-e .btn-outline { border-color: #C5CBBC; color: #5A7257; background: transparent; }
+  .opt-e .card { background: #F0EDE6; border: 1px solid #DDD8CE; }
+  .opt-e .card h4 { color: #6B8068; }
+  .opt-e .card p { color: #5C6660; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Color Scheme Options</h1>
+  <p>Comparing the current dark theme vs. 3 brighter alternatives for a high school audience</p>
+</div>
+
+<div class="grid">
+
+  <!-- CURRENT -->
+  <div class="option current">
+    <div class="option__label">
+      <h2>Current — Dark Editorial</h2>
+      <span>DARK BG</span>
+    </div>
+    <div class="swatches">
+      <div style="background:#1C1714;color:#F0EAE0">#1C1714</div>
+      <div style="background:#231E19;color:#A89F94">#231E19</div>
+      <div style="background:#F0EAE0;color:#1C1714">#F0EAE0</div>
+      <div style="background:#E8D5B5;color:#1C1714">#E8D5B5</div>
+      <div style="background:#A89F94;color:#1C1714">#A89F94</div>
+    </div>
+    <div class="mock">
+      <div class="badge">Now accepting applications for Fall 2026</div>
+      <h3>Accelerate the next generation of AI changemakers.</h3>
+      <p>A coalition of NYC's most ambitious high schoolers building real AI startups, nonprofits, and tools that solve real problems.</p>
+      <div class="btn-row">
+        <button class="btn btn-filled">Apply as a Student →</button>
+        <button class="btn btn-outline">Nominate a Student</button>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>01 // Mentors</h4><p>Matched with dedicated AI industry mentors</p></div>
+        <div class="card"><h4>02 // Structure</h4><p>Clear milestones, demo days, real accountability</p></div>
+        <div class="card"><h4>03 // Launch</h4><p>Build a startup, nonprofit, or community tool</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION A -->
+  <div class="option opt-a">
+    <div class="option__label">
+      <h2>Option A — Clean & Electric Blue</h2>
+      <span>LIGHT BG</span>
+    </div>
+    <div class="swatches">
+      <div style="background:#FFFFFF;color:#1A1A2E">#FFFFFF</div>
+      <div style="background:#F5F7FF;color:#1A1A2E">#F5F7FF</div>
+      <div style="background:#4361EE;color:#fff">#4361EE</div>
+      <div style="background:#1A1A2E;color:#fff">#1A1A2E</div>
+      <div style="background:#555770;color:#fff">#555770</div>
+    </div>
+    <div class="mock">
+      <div class="badge">Now accepting applications for Fall 2026</div>
+      <h3>Accelerate the next generation of AI changemakers.</h3>
+      <p>A coalition of NYC's most ambitious high schoolers building real AI startups, nonprofits, and tools that solve real problems.</p>
+      <div class="btn-row">
+        <button class="btn btn-filled">Apply as a Student →</button>
+        <button class="btn btn-outline">Nominate a Student</button>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>01 // Mentors</h4><p>Matched with dedicated AI industry mentors</p></div>
+        <div class="card"><h4>02 // Structure</h4><p>Clear milestones, demo days, real accountability</p></div>
+        <div class="card"><h4>03 // Launch</h4><p>Build a startup, nonprofit, or community tool</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div class="option opt-b">
+    <div class="option__label">
+      <h2>Option B — Warm Cream + Coral</h2>
+      <span>WARM BG</span>
+    </div>
+    <div class="swatches">
+      <div style="background:#FFF9F2;color:#2D2419">#FFF9F2</div>
+      <div style="background:#FFF4EB;color:#2D2419">#FFF4EB</div>
+      <div style="background:#E8653A;color:#fff">#E8653A</div>
+      <div style="background:#2D2419;color:#fff">#2D2419</div>
+      <div style="background:#6B5D52;color:#fff">#6B5D52</div>
+    </div>
+    <div class="mock">
+      <div class="badge">Now accepting applications for Fall 2026</div>
+      <h3>Accelerate the next generation of AI changemakers.</h3>
+      <p>A coalition of NYC's most ambitious high schoolers building real AI startups, nonprofits, and tools that solve real problems.</p>
+      <div class="btn-row">
+        <button class="btn btn-filled">Apply as a Student →</button>
+        <button class="btn btn-outline">Nominate a Student</button>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>01 // Mentors</h4><p>Matched with dedicated AI industry mentors</p></div>
+        <div class="card"><h4>02 // Structure</h4><p>Clear milestones, demo days, real accountability</p></div>
+        <div class="card"><h4>03 // Launch</h4><p>Build a startup, nonprofit, or community tool</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C -->
+  <div class="option opt-c">
+    <div class="option__label">
+      <h2>Option C — Fresh Teal & Green</h2>
+      <span>COOL BG</span>
+    </div>
+    <div class="swatches">
+      <div style="background:#F4F9F7;color:#1A2E2A">#F4F9F7</div>
+      <div style="background:#EAF5F1;color:#1A2E2A">#EAF5F1</div>
+      <div style="background:#0D9373;color:#fff">#0D9373</div>
+      <div style="background:#1A2E2A;color:#fff">#1A2E2A</div>
+      <div style="background:#4A6B62;color:#fff">#4A6B62</div>
+    </div>
+    <div class="mock">
+      <div class="badge">Now accepting applications for Fall 2026</div>
+      <h3>Accelerate the next generation of AI changemakers.</h3>
+      <p>A coalition of NYC's most ambitious high schoolers building real AI startups, nonprofits, and tools that solve real problems.</p>
+      <div class="btn-row">
+        <button class="btn btn-filled">Apply as a Student →</button>
+        <button class="btn btn-outline">Nominate a Student</button>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>01 // Mentors</h4><p>Matched with dedicated AI industry mentors</p></div>
+        <div class="card"><h4>02 // Structure</h4><p>Clear milestones, demo days, real accountability</p></div>
+        <div class="card"><h4>03 // Launch</h4><p>Build a startup, nonprofit, or community tool</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION D -->
+  <div class="option opt-d">
+    <div class="option__label">
+      <h2>Option D — Cream + Neutral Charcoal</h2>
+      <span>CREAM BG</span>
+    </div>
+    <div class="swatches">
+      <div style="background:#FAF7F2;color:#2C2825">#FAF7F2</div>
+      <div style="background:#F3EEE7;color:#2C2825">#F3EEE7</div>
+      <div style="background:#2C2825;color:#FAF7F2">#2C2825</div>
+      <div style="background:#8C7E70;color:#fff">#8C7E70</div>
+      <div style="background:#C5BAB0;color:#2C2825">#C5BAB0</div>
+    </div>
+    <div class="mock">
+      <div class="badge">Now accepting applications for Fall 2026</div>
+      <h3>Accelerate the next generation of AI changemakers.</h3>
+      <p>A coalition of NYC's most ambitious high schoolers building real AI startups, nonprofits, and tools that solve real problems.</p>
+      <div class="btn-row">
+        <button class="btn btn-filled">Apply as a Student →</button>
+        <button class="btn btn-outline">Nominate a Student</button>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>01 // Mentors</h4><p>Matched with dedicated AI industry mentors</p></div>
+        <div class="card"><h4>02 // Structure</h4><p>Clear milestones, demo days, real accountability</p></div>
+        <div class="card"><h4>03 // Launch</h4><p>Build a startup, nonprofit, or community tool</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION E -->
+  <div class="option opt-e">
+    <div class="option__label">
+      <h2>Option E — Cream + Warm Sage</h2>
+      <span>CREAM BG</span>
+    </div>
+    <div class="swatches">
+      <div style="background:#F8F5EF;color:#2E3330">#F8F5EF</div>
+      <div style="background:#F0EDE6;color:#2E3330">#F0EDE6</div>
+      <div style="background:#6B8068;color:#fff">#6B8068</div>
+      <div style="background:#2E3330;color:#fff">#2E3330</div>
+      <div style="background:#C5CBBC;color:#2E3330">#C5CBBC</div>
+    </div>
+    <div class="mock">
+      <div class="badge">Now accepting applications for Fall 2026</div>
+      <h3>Accelerate the next generation of AI changemakers.</h3>
+      <p>A coalition of NYC's most ambitious high schoolers building real AI startups, nonprofits, and tools that solve real problems.</p>
+      <div class="btn-row">
+        <button class="btn btn-filled">Apply as a Student →</button>
+        <button class="btn btn-outline">Nominate a Student</button>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>01 // Mentors</h4><p>Matched with dedicated AI industry mentors</p></div>
+        <div class="card"><h4>02 // Structure</h4><p>Clear milestones, demo days, real accountability</p></div>
+        <div class="card"><h4>03 // Launch</h4><p>Build a startup, nonprofit, or community tool</p></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const show = params.get('show');
+if (show) {
+  const map = { current: 0, a: 1, b: 2, c: 3, d: 4, e: 5 };
+  const idx = map[show];
+  if (idx !== undefined) {
+    document.querySelectorAll('.option').forEach((el, i) => {
+      if (i !== idx) el.style.display = 'none';
+    });
+    document.querySelector('.grid').style.gridTemplateColumns = '1fr';
+    document.querySelector('.grid').style.maxWidth = '900px';
+  }
+}
+</script>
+</body>
+</html>

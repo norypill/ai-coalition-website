@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nominate a Student — AI High School Coalition</title>
+  <meta name="description" content="Nominate a standout high schooler for the AI High School Coalition accelerator program.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav scrolled">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">NYCAI <span>//</span> Accelerator</a>
+    </div>
+  </nav>
+
+  <!-- ========== FORM PAGE ========== -->
+  <section class="form-page">
+    <div class="container form-page__container">
+
+      <a href="index.html" class="form-page__back">&larr; Back to Home</a>
+
+      <div class="form-page__header">
+        <div class="section-label">Nominate a Student</div>
+        <h1 class="section-headline">Know a standout student? Tell us about them.</h1>
+        <p class="section-body">Teachers, counselors, parents, and mentors &mdash; nominate a high schooler who has the ambition and drive to build with AI.</p>
+      </div>
+
+      <form
+        name="student-nomination"
+        method="POST"
+        action="/success.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <!-- Honeypot -->
+        <p style="display:none;">
+          <label>Don't fill this out: <input name="bot-field"></label>
+        </p>
+
+        <!-- Section 1: About You -->
+        <fieldset class="form-section">
+          <legend class="form-section__title">About You (The Nominator)</legend>
+
+          <div class="form-group">
+            <label for="nominator-name">Your Full Name *</label>
+            <input type="text" id="nominator-name" name="nominator-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="nominator-email">Your Email *</label>
+            <input type="email" id="nominator-email" name="nominator-email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="nominator-role">Your Role *</label>
+            <select id="nominator-role" name="nominator-role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="Teacher">Teacher</option>
+              <option value="School Counselor">School Counselor</option>
+              <option value="Administrator">Administrator</option>
+              <option value="Parent/Guardian">Parent/Guardian</option>
+              <option value="Community Leader">Community Leader</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="nominator-org">Your School or Organization *</label>
+            <input type="text" id="nominator-org" name="nominator-org" required>
+          </div>
+        </fieldset>
+
+        <!-- Section 2: About the Student -->
+        <fieldset class="form-section">
+          <legend class="form-section__title">About the Student</legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="student-first-name">Student First Name *</label>
+              <input type="text" id="student-first-name" name="student-first-name" required>
+            </div>
+            <div class="form-group">
+              <label for="student-last-name">Student Last Name *</label>
+              <input type="text" id="student-last-name" name="student-last-name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="student-email">Student Email *</label>
+            <input type="email" id="student-email" name="student-email" required>
+            <span class="form-group__hint">We'll reach out to them directly</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="student-school">Student School *</label>
+              <input type="text" id="student-school" name="student-school" required>
+            </div>
+            <div class="form-group">
+              <label for="student-grade">Student Grade *</label>
+              <select id="student-grade" name="student-grade" required>
+                <option value="" disabled selected>Select grade</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th</option>
+                <option value="11th">11th</option>
+                <option value="12th">12th</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Section 3: Why This Student? -->
+        <fieldset class="form-section">
+          <legend class="form-section__title">Why This Student?</legend>
+
+          <div class="form-group">
+            <label for="nomination-reason">Why are you nominating this student? *</label>
+            <textarea id="nomination-reason" name="nomination-reason" rows="5" required></textarea>
+            <span class="form-group__hint">What makes them stand out? What have they built or shown interest in?</span>
+          </div>
+
+          <div class="form-group">
+            <label for="additional-info">Anything else we should know?</label>
+            <textarea id="additional-info" name="additional-info" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn--filled">Submit Nomination &rarr;</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">AI High School Coalition</div>
+        <div class="footer__sub">An initiative of NORY Changemakers Corp, a 501(c)(3) nonprofit.</div>
+      </div>
+      <div class="footer__links">
+        <a href="index.html#apply">Apply</a>
+        <a href="index.html#nominate">Nominate</a>
+        <a href="index.html#mentor">Mentor</a>
+        <a href="index.html#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

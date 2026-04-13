@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Mentor — AI High School Coalition</title>
+  <meta name="description" content="Share your AI expertise with ambitious high schoolers. Apply to become a mentor with the AI High School Coalition.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">NYCAI <span>//</span> Accelerator</a>
+    </div>
+  </nav>
+
+  <!-- ========== FORM ========== -->
+  <section class="form-page">
+    <div class="container">
+
+      <a href="index.html" class="form-page__back">&larr; Back to Home</a>
+
+      <div class="form-page__header">
+        <div class="section-label">Become a Mentor</div>
+        <h1 class="section-headline">Guide the next generation of AI builders.</h1>
+        <p class="section-body">Share your expertise with ambitious high schoolers. Commit as little as one hour per week to help a student turn their AI idea into reality.</p>
+      </div>
+
+      <div class="form-page__container">
+        <form name="mentor-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+
+          <!-- Honeypot -->
+          <p style="display:none;">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
+
+          <!-- Section 1: About You -->
+          <div class="form-section" style="border-top:none; margin-top:0; padding-top:0;">
+            <h2 class="form-section__title">About You</h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first-name" required>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last-name" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company or University *</label>
+              <input type="text" id="company" name="company" required>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Title / Role *</label>
+              <input type="text" id="role" name="role" required>
+            </div>
+
+            <div class="form-group">
+              <label for="linkedin">LinkedIn Profile</label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+            </div>
+          </div>
+
+          <!-- Section 2: Your Expertise -->
+          <div class="form-section">
+            <h2 class="form-section__title">Your Expertise</h2>
+
+            <div class="form-group">
+              <label for="expertise">Areas of AI Expertise *</label>
+              <textarea id="expertise" name="expertise" required placeholder="e.g., NLP, Computer Vision, ML Engineering, Product, Data Science..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="experience">Years of Experience in AI / Tech *</label>
+              <select id="experience" name="experience" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="1-3">1-3</option>
+                <option value="3-5">3-5</option>
+                <option value="5-10">5-10</option>
+                <option value="10+">10+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="availability">Availability *</label>
+              <select id="availability" name="availability" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="1 hour/week">1 hour/week</option>
+                <option value="2-3 hours/week">2-3 hours/week</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Section 3: Motivation -->
+          <div class="form-section">
+            <h2 class="form-section__title">Motivation</h2>
+
+            <div class="form-group">
+              <label for="motivation">Why do you want to mentor? *</label>
+              <textarea id="motivation" name="motivation" required></textarea>
+              <div class="form-group__hint">What drives you to work with high schoolers?</div>
+            </div>
+
+            <div class="form-group">
+              <label for="anything-else">Anything else we should know?</label>
+              <textarea id="anything-else" name="anything-else"></textarea>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="form__submit">
+            <button type="submit" class="btn btn--filled">Apply as Mentor &rarr;</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">AI High School Coalition</div>
+        <div class="footer__sub">An initiative of NORY Changemakers Corp, a 501(c)(3) nonprofit.</div>
+      </div>
+      <div class="footer__links">
+        <a href="index.html#apply">Apply</a>
+        <a href="index.html#nominate">Nominate</a>
+        <a href="index.html#mentor">Mentor</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

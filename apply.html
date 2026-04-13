@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply as a Student — AI High School Coalition</title>
+  <meta name="description" content="Apply to join the AI High School Coalition. Build real AI projects with mentorship from industry leaders.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav" id="nav" style="background: rgba(28, 23, 20, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">NYCAI <span>//</span> Accelerator</a>
+      <a href="index.html" class="form-page__back">&larr; Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- ========== APPLICATION FORM ========== -->
+  <section class="form-page">
+    <div class="form-page__container">
+
+      <div class="form-page__header">
+        <div class="section-label">Student Application</div>
+        <h1 class="section-headline">Build something real. Start here.</h1>
+        <p class="section-body">Tell us about yourself and your project idea. Applications are reviewed on a rolling basis.</p>
+      </div>
+
+      <form name="student-application" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="bot-field">
+        <input type="hidden" name="form-name" value="student-application">
+
+        <!-- Section 1: About You -->
+        <div class="form-section">
+          <h2 class="form-section__title">About You</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last-name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="school">School Name *</label>
+            <input type="text" id="school" name="school" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="grade">Grade *</label>
+              <select id="grade" name="grade" required>
+                <option value="" disabled selected>Select grade</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th</option>
+                <option value="11th">11th</option>
+                <option value="12th">12th</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="borough">Borough *</label>
+              <select id="borough" name="borough" required>
+                <option value="" disabled selected>Select borough</option>
+                <option value="Manhattan">Manhattan</option>
+                <option value="Brooklyn">Brooklyn</option>
+                <option value="Queens">Queens</option>
+                <option value="Bronx">Bronx</option>
+                <option value="Staten Island">Staten Island</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Your Project -->
+        <div class="form-section">
+          <h2 class="form-section__title">Your Project</h2>
+
+          <div class="form-group">
+            <label for="project-title">Project Idea Title *</label>
+            <input type="text" id="project-title" name="project-title" placeholder="e.g., AI-Powered Tutoring Platform" required>
+          </div>
+
+          <div class="form-group">
+            <label for="project-description">Project Description *</label>
+            <textarea id="project-description" name="project-description" rows="5" placeholder="Describe what you want to build and the problem it solves..." required></textarea>
+            <span class="form-group__hint">200 words max</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="project-category">Project Category *</label>
+              <select id="project-category" name="project-category" required>
+                <option value="" disabled selected>Select category</option>
+                <option value="Startup">Startup</option>
+                <option value="Nonprofit">Nonprofit</option>
+                <option value="Community Tool">Community Tool</option>
+                <option value="Research Project">Research Project</option>
+                <option value="Creative Campaign">Creative Campaign</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ai-experience">AI Experience Level *</label>
+              <select id="ai-experience" name="ai-experience" required>
+                <option value="" disabled selected>Select level</option>
+                <option value="Complete beginner">Complete beginner</option>
+                <option value="Some experience with AI tools">Some experience with AI tools</option>
+                <option value="Have built AI projects before">Have built AI projects before</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Tell Us More -->
+        <div class="form-section">
+          <h2 class="form-section__title">Tell Us More</h2>
+
+          <div class="form-group">
+            <label for="why-join">Why do you want to join the AI High School Coalition? *</label>
+            <textarea id="why-join" name="why-join" rows="4" required></textarea>
+            <span class="form-group__hint">Be specific about what excites you</span>
+          </div>
+
+          <div class="form-group">
+            <label for="portfolio">Portfolio, GitHub, or personal website</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://...">
+          </div>
+
+          <div class="form-group">
+            <label for="referral">How did you hear about us? *</label>
+            <select id="referral" name="referral" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Teacher/School">Teacher/School</option>
+              <option value="Friend/Classmate">Friend/Classmate</option>
+              <option value="Social Media">Social Media</option>
+              <option value="NORY Program">NORY Program</option>
+              <option value="News/Article">News/Article</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Section 4: Parent/Guardian -->
+        <div class="form-section">
+          <h2 class="form-section__title">Parent/Guardian</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guardian-name">Parent/Guardian Full Name *</label>
+              <input type="text" id="guardian-name" name="guardian-name" required>
+            </div>
+            <div class="form-group">
+              <label for="guardian-email">Parent/Guardian Email *</label>
+              <input type="email" id="guardian-email" name="guardian-email" required>
+            </div>
+          </div>
+          <span class="form-group__hint">Required for students under 18. We'll send them program details.</span>
+        </div>
+
+        <button type="submit" class="btn btn--filled">Submit Application &rarr;</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">AI High School Coalition</div>
+        <div class="footer__sub">An initiative of NORY Changemakers Corp, a 501(c)(3) nonprofit.</div>
+      </div>
+      <div class="footer__links">
+        <a href="index.html#apply">Apply</a>
+        <a href="index.html#nominate">Nominate</a>
+        <a href="index.html#mentor">Mentor</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

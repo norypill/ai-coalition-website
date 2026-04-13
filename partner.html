@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner With Us — AI High School Coalition</title>
+  <meta name="description" content="Partner with the AI High School Coalition. Whether you represent a school, company, or foundation, there's a way to support young AI builders.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">NYCAI <span>//</span> Accelerator</a>
+    </div>
+  </nav>
+
+  <!-- ========== FORM ========== -->
+  <section class="form-page">
+    <div class="container">
+
+      <a href="index.html" class="form-page__back">&larr; Back to Home</a>
+
+      <div class="form-page__header">
+        <div class="section-label">Partner With Us</div>
+        <h1 class="section-headline">Invest in the next generation.</h1>
+        <p class="section-body">Whether you represent a school, company, foundation, or community organization — there's a way to support ambitious young AI builders.</p>
+      </div>
+
+      <div class="form-page__container">
+        <form name="partner-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+
+          <!-- Honeypot -->
+          <p style="display:none;">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
+
+          <!-- Section 1: About You -->
+          <div class="form-section" style="border-top:none; margin-top:0; padding-top:0;">
+            <h2 class="form-section__title">About You</h2>
+
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="full-name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="organization">Organization *</label>
+              <input type="text" id="organization" name="organization" required>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role / Title *</label>
+              <input type="text" id="role" name="role" required>
+            </div>
+          </div>
+
+          <!-- Section 2: Your Interest -->
+          <div class="form-section">
+            <h2 class="form-section__title">Your Interest</h2>
+
+            <div class="form-group">
+              <label for="involvement">How would you like to get involved? *</label>
+              <select id="involvement" name="involvement" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Funding/Sponsorship">Funding/Sponsorship</option>
+                <option value="Provide AI Tools/Resources">Provide AI Tools/Resources</option>
+                <option value="School Partnership">School Partnership</option>
+                <option value="Join Educator Advisory Council">Join Educator Advisory Council</option>
+                <option value="Speaking/Workshop">Speaking/Workshop</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="details">Tell us more about how you'd like to help *</label>
+              <textarea id="details" name="details" required></textarea>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="form__submit">
+            <button type="submit" class="btn btn--filled">Get in Touch &rarr;</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">AI High School Coalition</div>
+        <div class="footer__sub">An initiative of NORY Changemakers Corp, a 501(c)(3) nonprofit.</div>
+      </div>
+      <div class="footer__links">
+        <a href="index.html#apply">Apply</a>
+        <a href="index.html#nominate">Nominate</a>
+        <a href="index.html#mentor">Mentor</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
